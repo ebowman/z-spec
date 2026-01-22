@@ -1,5 +1,7 @@
 ---
 description: Generate code from a Z specification
+argument-hint: "[spec.tex] [language: swift, typescript, python, kotlin]"
+allowed-tools: Bash(fuzz:*), Bash(which:*), Read, Glob, Grep, Write
 ---
 
 # /z model2code - Model to Code
