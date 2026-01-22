@@ -11,6 +11,12 @@ Create, validate, and test formal Z specifications for stateful systems using fu
 - **Elaborate** specs with narrative from design documentation
 - **ProB-compatible** output (avoids B keyword conflicts, bounded integers, flat schemas)
 
+## Platform Support
+
+**macOS and Linux only.** Windows is not currently supported.
+
+The plugin relies on Unix shell commands and paths. fuzz and probcli are also primarily Unix tools.
+
 ## Quick Start
 
 ### 1. Install the Plugin

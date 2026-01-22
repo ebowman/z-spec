@@ -1,6 +1,7 @@
 ---
 description: Create a Z specification for stateful entities in a system
 argument-hint: "[focus area or system description]"
+allowed-tools: Bash(fuzz:*), Bash(which:*), Bash(pdflatex:*), Read, Glob, Grep
 ---
 
 # Create Z Specification

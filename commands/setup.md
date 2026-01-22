@@ -1,6 +1,7 @@
 ---
 description: Install and configure fuzz and probcli dependencies
 argument-hint: "[check|fuzz|probcli|all]"
+allowed-tools: Bash(which:*), Bash(uname:*), Bash(fuzz:*), Bash(probcli:*), Bash($PROBCLI:*), Read, Glob
 ---
 
 # Setup Z Specification Tools

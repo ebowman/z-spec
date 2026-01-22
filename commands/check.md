@@ -1,7 +1,7 @@
 ---
 description: Type-check a Z specification with fuzz
 argument-hint: "[file.tex]"
-allowed-tools: Bash(fuzz:*), Read, Glob
+allowed-tools: Bash(fuzz:*), Bash(which:*), Bash(pdflatex:*), Read, Glob
 ---
 
 # Check Z Specification with Fuzz

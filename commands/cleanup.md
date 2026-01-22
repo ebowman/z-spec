@@ -1,6 +1,7 @@
 ---
 description: Remove Z specification tooling files from project
 argument-hint: "[docs-dir]"
+allowed-tools: Bash(which:*), Read, Glob
 ---
 
 # Cleanup Z Specification Files

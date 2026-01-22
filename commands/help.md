@@ -97,6 +97,9 @@ For specs that work with both fuzz and probcli:
 
 ## Requirements
 
+**Platform**: macOS or Linux only (Windows not supported)
+
+**Tools**:
 - **fuzz**: https://github.com/Spivoxity/fuzz
 - **probcli**: https://prob.hhu.de/w/index.php/Download
 

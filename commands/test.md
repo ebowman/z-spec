@@ -1,7 +1,7 @@
 ---
 description: Validate and animate a Z specification with probcli
 argument-hint: "[file.tex] [options: -v verbose, -a N animate steps, -s N setsize]"
-allowed-tools: Bash(probcli:*), Bash(fuzz:*), Bash($PROBCLI:*), Read, Glob
+allowed-tools: Bash(probcli:*), Bash($PROBCLI:*), Bash(fuzz:*), Bash(which:*), Read, Glob
 ---
 
 # Test Z Specification with ProB
