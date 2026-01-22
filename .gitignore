@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+
+# Editor
+*.swp
+*.swo
+*~
+
+# LaTeX build artifacts (for testing)
+*.aux
+*.log
+*.fuzz
+*.synctex.gz
+*.pdf
