@@ -21,6 +21,7 @@ description: Show Z specification plugin help and quick reference
 | `/z test [file]` | Validate and animate with probcli |
 | `/z update [file] [changes]` | Modify an existing specification |
 | `/z elaborate [spec] [design]` | Enhance spec with narrative from design docs |
+| `/z generate [spec] [lang]` | Generate code and tests from a Z specification |
 | `/z cleanup [dir]` | Remove TeX tooling files (keeps .tex and .pdf) |
 | `/z help` | Show this help |
 
@@ -34,6 +35,8 @@ description: Show Z specification plugin help and quick reference
 /z update docs/auth.tex add a logout operation
 /z elaborate docs/auth.tex DESIGN.md
 /z elaborate docs/system.tex              # Uses DESIGN.md by default
+/z generate docs/auth.tex swift           # Generate Swift code from spec
+/z generate                               # Auto-detect spec and language
 /z cleanup                                # Remove tooling files from docs/
 ```
 

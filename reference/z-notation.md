@@ -30,8 +30,14 @@ Quick reference for Z notation LaTeX commands supported by fuzz.
 | `\cap` | ∩ | Intersection |
 | `\setminus` | \ | Set difference |
 | `\subseteq` | ⊆ | Subset |
+| `\subset` | ⊂ | Proper subset |
 | `\in` | ∈ | Membership |
+| `\notin` | ∉ | Non-membership |
 | `\cross` | × | Cartesian product |
+| `\bigcup` | ⋃ | Generalized union |
+| `\bigcap` | ⋂ | Generalized intersection |
+| `\disjoint` | disjoint | Pairwise disjoint sets |
+| `A \partition S` | A partition S | A partitions S |
 
 ## Relations and Functions
 
@@ -61,22 +67,47 @@ Quick reference for Z notation LaTeX commands supported by fuzz.
 | `\ndres` | ⩤ | Domain anti-restriction |
 | `\nrres` | ⩥ | Range anti-restriction |
 | `\inv` | ∼ | Relational inverse |
-| `\limg R \rimg` | R⦇...⦈ | Relational image |
+| `R \limg A \rimg` | R⦇A⦈ | Relational image of set A |
 | `\oplus` | ⊕ | Override |
+| `\id X` | id X | Identity relation on X |
+| `R \plus` | R⁺ | Transitive closure |
+| `R \star` | R* | Reflexive-transitive closure |
+| `R \bsup k \esup` | Rᵏ | Iteration (k applications) |
 
 ## Sequences
 
 | Command | Symbol | Meaning |
 |---------|--------|---------|
-| `\seq X` | seq X | Sequences of X |
+| `\seq X` | seq X | Finite sequences of X |
 | `\seq_1 X` | seq₁ X | Non-empty sequences |
-| `\iseq X` | iseq X | Injective sequences |
+| `\iseq X` | iseq X | Injective sequences (no duplicates) |
 | `\langle ... \rangle` | ⟨...⟩ | Sequence literal |
 | `\cat` | ⌢ | Concatenation |
 | `\dcat` | ⌢/ | Distributed concatenation |
-| `\head`, `\tail`, `\last`, `\front` | | Sequence operations |
-| `\rev` | | Reverse |
-| `\squash` | | Squash (compact) |
+| `\head~s` | head s | First element |
+| `\tail~s` | tail s | All but first |
+| `\last~s` | last s | Final element |
+| `\front~s` | front s | All but last |
+| `\rev~s` | rev s | Reverse |
+| `\squash~f` | squash f | Compact function to sequence |
+| `A \extract s` | A ↿ s | Elements at positions in A |
+| `s \filter A` | s ↾ A | Keep elements in A |
+| `s \prefix t` | s ⊑ t | s is prefix of t |
+| `s \suffix t` | | s is suffix of t |
+| `s \inseq t` | | s is segment of t |
+
+## Bags (Multisets)
+
+| Command | Symbol | Meaning |
+|---------|--------|---------|
+| `\bag X` | bag X | Bags (multisets) of X |
+| `\lbag ... \rbag` | ⊎...⊎ | Bag literal |
+| `B \bcount x` | B # x | Count of x in bag B |
+| `x \inbag B` | x ∈ᵇ B | Bag membership |
+| `\subbageq` | ⊑ᵇ | Sub-bag |
+| `\uplus` | ⊎ | Bag union (add counts) |
+| `\uminus` | ⊖ | Bag difference (subtract counts) |
+| `\items~s` | items s | Sequence to bag |
 
 ## Logic
 
@@ -101,7 +132,21 @@ Quick reference for Z notation LaTeX commands supported by fuzz.
 | `x?` | Input variable |
 | `x!` | Output variable |
 | `x'` | After-state variable |
-| `\theta S` | Binding of schema S |
+| `\theta S` | Binding/tuple of schema S components |
+
+## Schema Operators
+
+| Command | Symbol | Meaning |
+|---------|--------|---------|
+| `S \land T` | S ∧ T | Schema conjunction |
+| `S \lor T` | S ∨ T | Schema disjunction |
+| `\lnot S` | ¬S | Schema negation |
+| `\pre S` | pre S | Precondition (when operation applicable) |
+| `S \semi T` | S ⨟ T | Sequential composition |
+| `S \pipe T` | S ≫ T | Piping (outputs to inputs) |
+| `S[y/x]` | S[y/x] | Renaming (x becomes y) |
+| `S \hide (x,y)` | S \ (x,y) | Hiding (existential quantification) |
+| `S \project (x,y)` | S ↾ (x,y) | Projection onto components |
 
 ## Arithmetic
 
