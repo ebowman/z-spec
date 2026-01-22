@@ -4,35 +4,16 @@ Create, validate, and test formal Z specifications for stateful systems using fu
 
 ## Features
 
+- **Guided setup** for fuzz and probcli installation
 - **Generate Z specs** from codebase analysis or system descriptions
 - **Type-check** with fuzz
 - **Animate and model-check** with probcli (ProB)
 - **Elaborate** specs with narrative from design documentation
 - **ProB-compatible** output (avoids B keyword conflicts, bounded integers, flat schemas)
 
-## Installation
+## Quick Start
 
-### Prerequisites
-
-**fuzz** - Z type-checker
-```bash
-# Install from https://github.com/Spivoxity/fuzz
-# Verify:
-fuzz -version
-```
-
-**probcli** - ProB command-line interface
-```bash
-# Install from https://prob.hhu.de/w/index.php/Download
-# Add to shell profile:
-export PROBCLI="$HOME/Applications/ProB/probcli"
-# Verify:
-$PROBCLI -version
-```
-
-### Plugin Installation
-
-#### Option 1: Local Marketplace (Recommended)
+### 1. Install the Plugin
 
 ```bash
 # Create local marketplace if it doesn't exist
@@ -65,18 +46,33 @@ claude plugin marketplace add ~/.claude/plugins/local-plugins
 claude plugin install z-spec@local
 ```
 
-#### Option 2: Direct Copy
+### 2. Install Dependencies
 
-```bash
-# Clone directly to plugins directory
-git clone https://github.com/jmf-pobox/claude-z-spec-plugin.git \
-    ~/.claude/plugins/z-spec
+Once the plugin is installed, use the setup command to install fuzz and probcli:
+
+```
+/z setup          # Check what's already installed
+/z setup all      # Install everything with guided help
+```
+
+The setup command will:
+- Detect your platform (macOS Intel/Apple Silicon, Linux)
+- Check for existing installations
+- Guide you through installing fuzz (Z type-checker)
+- Guide you through installing probcli (ProB CLI) including Tcl/Tk dependencies
+- Verify everything works
+
+### 3. Create Your First Spec
+
+```
+/z create the user authentication system
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
+| `/z setup` | **Start here** - Install and configure fuzz and probcli |
 | `/z create [focus]` | Generate a Z specification from codebase or description |
 | `/z check [file]` | Type-check a specification with fuzz |
 | `/z test [file]` | Validate and animate with probcli |
@@ -84,53 +80,33 @@ git clone https://github.com/jmf-pobox/claude-z-spec-plugin.git \
 | `/z elaborate [spec] [design]` | Enhance spec with narrative from design docs |
 | `/z help` | Show quick reference |
 
-## Quick Start
-
-### Create a Specification
+## Workflow
 
 ```
-/z create the user authentication system
+/z setup                              # Install tools (first time only)
+/z create the payment system          # Generate spec from codebase
+/z check docs/payment.tex             # Type-check
+/z test docs/payment.tex              # Animate and model-check
+/z elaborate docs/payment.tex         # Add narrative from DESIGN.md
 ```
 
-Analyzes the codebase and generates a formal Z specification in `docs/`.
+## Dependencies
 
-### Validate
+The plugin requires two external tools:
 
-```
-/z check docs/auth.tex      # Type-check with fuzz
-/z test docs/auth.tex       # Animate with probcli
-```
+### fuzz
 
-### Elaborate with Design Narrative
+The Z type-checker. Compiled from source.
+- Repository: https://github.com/Spivoxity/fuzz
+- Includes `fuzz.sty` for LaTeX
 
-```
-/z elaborate docs/auth.tex DESIGN.md
-```
+### probcli
 
-Transforms a minimal spec into polished documentation with:
-- Table of contents
-- Design philosophy
-- Semantic explanations
-- Algorithm summaries
-- Validation status
+The ProB command-line interface for animation and model-checking.
+- Download: https://prob.hhu.de/w/index.php/Download
+- Requires Tcl/Tk libraries
 
-### Update
-
-```
-/z update docs/auth.tex add a logout operation
-```
-
-## Specification Structure
-
-Generated specs follow this structure:
-
-1. **Basic Types** - Given sets (`[USERID, TIMESTAMP]`)
-2. **Free Types** - Enumerations (`Status ::= active | inactive`)
-3. **Global Constants** - Configuration values
-4. **State Schemas** - Entities with invariants
-5. **Initialization** - Valid initial states
-6. **Operations** - State transitions
-7. **System Invariants** - Key properties summary
+**Don't install these manually** - use `/z setup` for guided installation.
 
 ## ProB Compatibility
 
@@ -143,6 +119,18 @@ The plugin generates specs that work with both fuzz and probcli:
 | Unbounded integers | Add bounds in invariants |
 | Nested schemas | Flatten into single State schema |
 | Unbounded inputs | Add upper bounds to inputs |
+
+## Specification Structure
+
+Generated specs follow this structure:
+
+1. **Basic Types** - Given sets (`[USERID, TIMESTAMP]`)
+2. **Free Types** - Enumerations (`Status ::= active | inactive`)
+3. **Global Constants** - Configuration values
+4. **State Schemas** - Entities with invariants
+5. **Initialization** - Valid initial states
+6. **Operations** - State transitions
+7. **System Invariants** - Key properties summary
 
 ## Reference Files
 

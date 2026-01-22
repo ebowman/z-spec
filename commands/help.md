@@ -4,10 +4,18 @@ description: Show Z specification plugin help and quick reference
 
 # Z Specification Plugin Help
 
+## First Time? Start Here
+
+```
+/z setup          # Check what's installed
+/z setup all      # Install fuzz and probcli with guidance
+```
+
 ## Commands
 
 | Command | Description |
 |---------|-------------|
+| `/z setup` | Install and configure fuzz and probcli |
 | `/z create [focus]` | Generate a Z specification from codebase or description |
 | `/z check [file]` | Type-check a specification with fuzz |
 | `/z test [file]` | Validate and animate with probcli |
